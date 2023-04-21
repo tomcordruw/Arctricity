@@ -406,6 +406,7 @@ class HomePage extends StatelessWidget {
                                   child: Padding(
                                       padding: EdgeInsets.only(
                                         top: 15,
+                                        left: 10,
                                         bottom: 16,
                                       ), // Add padding to the bottom of the container
                                       child: Container(

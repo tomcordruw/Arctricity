@@ -26,7 +26,7 @@ class WeatherWidget extends StatelessWidget {
                 tooltipRoundedRadius: 20.0,
                 showOnTopOfTheChartBoxArea: true,
                 fitInsideHorizontally: true,
-                tooltipMargin: 0,
+                tooltipMargin: 5,
                 getTooltipItems: (touchedSpots) {
                   return touchedSpots.map(
                     (LineBarSpot touchedSpot) {
@@ -52,7 +52,7 @@ class WeatherWidget extends StatelessWidget {
                 return indicators.map(
                   (int index) {
                     final line = FlLine(
-                        color: Colors.grey, strokeWidth: 1, dashArray: [2, 4]);
+                        color: Colors.black, strokeWidth: 2, dashArray: [4, 4]);
                     return TouchedSpotIndicatorData(
                       line,
                       FlDotData(show: false),
@@ -170,7 +170,7 @@ class PriceWidget extends StatelessWidget {
                 tooltipRoundedRadius: 20.0,
                 showOnTopOfTheChartBoxArea: true,
                 fitInsideHorizontally: true,
-                tooltipMargin: 0,
+                tooltipMargin: 5,
                 getTooltipItems: (touchedSpots) {
                   return touchedSpots.map(
                     (LineBarSpot touchedSpot) {
@@ -197,7 +197,9 @@ class PriceWidget extends StatelessWidget {
                 return indicators.map(
                   (int index) {
                     final line = FlLine(
-                        color: Colors.grey, strokeWidth: 1, dashArray: [2, 4]);
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        strokeWidth: 2,
+                        dashArray: [4, 4]);
                     return TouchedSpotIndicatorData(
                       line,
                       FlDotData(show: false),

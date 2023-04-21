@@ -27,36 +27,41 @@ class _GraphsPageState extends State<GraphsPage> {
       ),
       body: ListView(
         children: [
-          DropdownButton<String>(
-            value: selectedPlaceholder,
-            onChanged: (String? newValue) {
-              setState(() {
-                selectedPlaceholder = newValue!;
-              });
-            },
-            items: [
-              'temp_out', // Replace with your actual placeholder values
-              'temp_hotwater',
-              'temp_watertank_lower',
-              'temp_watertank_upper',
-              'total_consumption',
-              'temp_HPcondensation',
-              'temp_HPgas_hot',
-              'temp_HPgas_suction',
-              'temp_floofheating_out',
-              'temp_floorheating_OUT_target',
-              'temp_floorheating_in',
-              'temp_groundwater_in',
-              'temp_groundwater_out',
-              'temp_in_not_connected',
-              // Add more placeholders as needed
-            ].map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          ),
+          Padding(
+              padding: EdgeInsets.only(left: 44),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: DropdownButton<String>(
+                  value: selectedPlaceholder,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedPlaceholder = newValue!;
+                    });
+                  },
+                  items: [
+                    'temp_out', // Replace with your actual placeholder values
+                    'temp_hotwater',
+                    'temp_watertank_lower',
+                    'temp_watertank_upper',
+                    'total_consumption',
+                    'temp_HPcondensation',
+                    'temp_HPgas_hot',
+                    'temp_HPgas_suction',
+                    'temp_floofheating_out',
+                    'temp_floorheating_OUT_target',
+                    'temp_floorheating_in',
+                    'temp_groundwater_in',
+                    'temp_groundwater_out',
+                    'temp_in_not_connected',
+                    // Add more placeholders as needed
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              )),
           Expanded(
             child: FutureBuilder<List<DocumentSnapshot>>(
               future: getHistorical(numDocuments, selectedPlaceholder),

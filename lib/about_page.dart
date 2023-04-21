@@ -117,7 +117,7 @@ class AboutPage extends StatelessWidget {
                             "\nTuomas Pasanen\nHouda Banyny\nJanne Vänskä\nTom Cordruwisch"
                             "\n\nThanks to all our team members for their contributions to this project!", // Set the desired placeholder text
                             style: TextStyle(
-                              fontSize: 46,
+                              fontSize: 40,
                               color: Colors.black,
                             ),
                             textAlign: TextAlign.center,
