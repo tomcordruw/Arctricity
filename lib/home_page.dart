@@ -152,7 +152,7 @@ class HomePage extends StatelessWidget {
                               // Iterate through the prices list and find the current price
                               PriceData? currentHour;
                               for (var priceObj in pricesList) {
-                                double price = priceObj['price'];
+                                double price = priceObj['price'].toDouble();
                                 DateTime startDate =
                                     DateTime.parse(priceObj['startDate']);
                                 DateTime endDate =
@@ -189,7 +189,8 @@ class HomePage extends StatelessWidget {
                               var advice = processedData['advice'];
                               var advice2 = processedData['advice2'];
                               Color triangleColor = getColorFromAHI(ahiValue);
-                              double vPosition = getVPositionFromAHI(ahiValue);
+                              double vPosition =
+                                  getVPositionFromAHI(ahiValue).toDouble();
                               if (heatingRate < 0) {
                                 waterTankStatus = "cooling: ";
                                 waterTankColour = Colors.blue;
@@ -225,9 +226,11 @@ class HomePage extends StatelessWidget {
                                 }
                               }
                               double consToday = historicalData[0]['avgValues']
-                                  ['total_consumption'];
+                                      ['total_consumption']
+                                  .toDouble();
                               double consPastDay = historicalData[closestIndex]
-                                  ['avgValues']['total_consumption'];
+                                      ['avgValues']['total_consumption']
+                                  .toDouble();
                               double kWhDiff = (consToday - consPastDay) / 1000;
 
                               // 24 hour-minimum temperature calculation
