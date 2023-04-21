@@ -17,7 +17,7 @@ class LineChartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1,
+      aspectRatio: 2,
       child: LineChart(
         LineChartData(
           lineTouchData: LineTouchData(
