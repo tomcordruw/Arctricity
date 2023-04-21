@@ -1,0 +1,34 @@
+name: arctricity
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  charts_flutter: ^0.10.0
+  cloud_firestore: ^4.5.0
+  firebase_core: ^2.9.0
+  firebase: ^9.0.3
+  firebase_database: ^10.1.0
+  fl_chart: ^0.62.0
+  fl_animated_linechart: ^1.1.6
+  flutter_charts: ^0.5.1
+  http: ^0.13.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/arctricity_logo.png
+  - assets/background_image.jpg
+  - assets/background.jpg
+  - assets/hp_system.png
+  - assets/indicator.png
