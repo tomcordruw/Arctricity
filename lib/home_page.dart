@@ -270,10 +270,12 @@ class HomePage extends StatelessWidget {
                                   child: Padding(
                                       padding: EdgeInsets.only(
                                         top: 12,
+                                        left: 10,
+                                        right: 10,
                                       ),
                                       child: Container(
-                                        width: 480,
-                                        height: 300,
+                                        width: 460,
+                                        height: 340,
                                         decoration: BoxDecoration(
                                           color: Color.fromARGB(223, 8, 47, 78),
                                           borderRadius:
@@ -294,8 +296,7 @@ class HomePage extends StatelessWidget {
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   left: 10,
-                                                  top: 10,
-                                                  bottom: 16),
+                                                  top: 10),
                                               child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
@@ -407,6 +408,7 @@ class HomePage extends StatelessWidget {
                                       padding: EdgeInsets.only(
                                         top: 15,
                                         left: 10,
+                                        right:10,
                                         bottom: 16,
                                       ), // Add padding to the bottom of the container
                                       child: Container(
