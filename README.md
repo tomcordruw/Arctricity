@@ -13,7 +13,7 @@ Industrial Project 2 - Heating system application
 ### PC<br />
 -Create a new terminal and navigate to the projects root folder<br />
 -Run "flutter pub get"<br />
-Then, enter:<br />
+Then, enter one of the following:<br />
 -flutter run -d edge --web-browser-flag "--disable-web-security"<br />
 -flutter run -d chrome --web-browser-flag "--disable-web-security"<br />
 <br />
