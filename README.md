@@ -12,6 +12,7 @@ PC
 -flutter run -d chrome --web-browser-flag "--disable-web-security"
 
 
+
 Android:
 
 -Turn on "USB debugging" in your phones developer options
