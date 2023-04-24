@@ -39,16 +39,17 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
           ),
-          Positioned(
+          // Only for smartphones because of potential notches
+          /*Positioned(
             child: Container(
               height: 42,
               color: Color.fromARGB(121, 24, 124, 116),
             ),
-          ),
+          ),*/
           Column(children: [
-            SizedBox(
+            /* SizedBox(
               height: 42,
-            ),
+            ),*/
             Stack(
               children: [
                 ClipRect(
