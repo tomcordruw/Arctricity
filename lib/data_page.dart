@@ -9,6 +9,7 @@ class DataPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 36, 60, 66),
       appBar: AppBar(
         title: Text('Real-time sensor data'),
       ),

@@ -1,4 +1,4 @@
-name: arctricity
+name: Arctricity
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -28,7 +28,7 @@ flutter:
   uses-material-design: true
   assets:
   - assets/arctricity_logo.png
-  - assets/background_image.jpg
+  - assets/arctricity.png
   - assets/background.jpg
   - assets/hp_system.png
   - assets/indicator.png

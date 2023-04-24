@@ -11,6 +11,7 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 36, 60, 66),
         appBar: AppBar(
           title: Text('About'),
         ),
@@ -97,12 +98,12 @@ class AboutPage extends StatelessWidget {
                         Positioned.fill(
                           child: Image.asset(
                             './assets/arctricity_logo.png',
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                         Container(
                           width: 700,
-                          height: 700,
+                          height: 500,
                           padding: EdgeInsets.all(20),
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -117,7 +118,7 @@ class AboutPage extends StatelessWidget {
                             "\nTuomas Pasanen\nHouda Banyny\nJanne Vänskä\nTom Cordruwisch"
                             "\n\nThanks to all our team members for their contributions to this project!", // Set the desired placeholder text
                             style: TextStyle(
-                              fontSize: 40,
+                              fontSize: 28,
                               color: Colors.black,
                             ),
                             textAlign: TextAlign.center,

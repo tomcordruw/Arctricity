@@ -135,17 +135,17 @@ String getUnit(String key, dynamic value) {
 
 double getVPositionFromAHI(int ahi) {
   if (ahi == 100) {
-    return 14;
+    return 7;
   } else if (ahi >= 80 && ahi < 100) {
-    return 20;
+    return 105 - ahi / 20 * 20;
   } else if (ahi >= 60 && ahi <= 79) {
-    return 45;
+    return 151 - ahi / 20 * 31;
   } else if (ahi >= 40 && ahi <= 59) {
-    return 73;
+    return 140 - ahi / 20 * 27;
   } else if (ahi >= 20 && ahi <= 39) {
-    return 96;
+    return 129 - ahi / 20 * 21;
   } else if (ahi >= 0 && ahi <= 19) {
-    return 115;
+    return 123 - ahi / 20 * 14;
   } else {
     throw ArgumentError('Invalid AHI variable. Must be between 0 and 100.');
   }

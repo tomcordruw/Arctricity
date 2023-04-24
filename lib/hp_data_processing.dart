@@ -26,8 +26,10 @@ Map<String, dynamic> processData(
   // turned on (up to 20 minutes before)
   if (compressorTime == 0) {
     tempFirst = convertToInt(docs, 5, "temp_watertank_lower");
-  } else {
+  } else if (compressorTime <= 20) {
     tempFirst = convertToInt(docs, compressorTime, "temp_watertank_lower");
+  } else {
+    tempFirst = convertToInt(docs, 20, "temp_watertank_lower");
   }
   // An example of how to get any string value, the middle
   // argument is position of the document in the list

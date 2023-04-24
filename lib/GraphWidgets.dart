@@ -113,6 +113,8 @@ class WeatherWidget extends StatelessWidget {
           titlesData: FlTitlesData(
             bottomTitles: AxisTitles(sideTitles: _bottomTitles),
             topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            leftTitles: AxisTitles(sideTitles: _leftTitles),
           ),
         ),
       ),
@@ -143,6 +145,25 @@ class WeatherWidget extends StatelessWidget {
             axisSide: meta.axisSide,
             angle: 0,
             child: Text(title, style: style),
+          );
+        },
+      );
+  SideTitles get _leftTitles => SideTitles(
+        showTitles: true,
+        interval: 5,
+        reservedSize: 35,
+        getTitlesWidget: (value, meta) {
+          String title = value.toStringAsFixed(0);
+
+          if (value == meta.max) {
+            title = "";
+          } else if (value == meta.min) {
+            title = "";
+          }
+          return SideTitleWidget(
+            axisSide: meta.axisSide,
+            angle: 0,
+            child: Text(title),
           );
         },
       );
@@ -248,6 +269,8 @@ class PriceWidget extends StatelessWidget {
           titlesData: FlTitlesData(
             bottomTitles: AxisTitles(sideTitles: _bottomTitles),
             topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            leftTitles: AxisTitles(sideTitles: _leftTitles),
           ),
         ),
       ),
@@ -272,6 +295,24 @@ class PriceWidget extends StatelessWidget {
             axisSide: meta.axisSide,
             angle: 0,
             child: Text(title, style: style),
+          );
+        },
+      );
+
+  SideTitles get _leftTitles => SideTitles(
+        showTitles: true,
+        interval: 5,
+        reservedSize: 35,
+        getTitlesWidget: (value, meta) {
+          String title = value.toStringAsFixed(0);
+
+          if (value == meta.max) {
+            title = "";
+          }
+          return SideTitleWidget(
+            axisSide: meta.axisSide,
+            angle: 0,
+            child: Text(title),
           );
         },
       );

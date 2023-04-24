@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.arctricity">
+    package="com.example.Arctricity">
    <application
-        android:label="arctricity"
+        android:label="Arctricity"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -22,13 +22,14 @@ class _GraphsPageState extends State<GraphsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 36, 60, 66),
       appBar: AppBar(
         title: Text('Graphs'),
       ),
       body: ListView(
         children: [
           Padding(
-              padding: EdgeInsets.only(left: 44),
+              padding: EdgeInsets.only(left: 55),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: DropdownButton<String>(
@@ -62,6 +63,9 @@ class _GraphsPageState extends State<GraphsPage> {
                   }).toList(),
                 ),
               )),
+          SizedBox(
+            height: 16,
+          ),
           Expanded(
             child: FutureBuilder<List<DocumentSnapshot>>(
               future: getHistorical(numDocuments, selectedPlaceholder),
@@ -132,18 +136,6 @@ class _GraphsPageState extends State<GraphsPage> {
                       .contains("total_consumption")) {
                     unit = "kWh";
                   }
-                  // The next ~10 lines of code are for testing the list output
-                  /*String getAllDataPointsAsString(List<DataPoint> dataPoints) {
-                    String result = '';
-                    for (DataPoint dataPoint in dataPoints) {
-                      String dataPointString =
-                          'x: ${dataPoint.x}, y: ${dataPoint.y}\n';
-                      result += dataPointString;
-                    }
-                    return result;
-                  }
-
-                  String allData = getAllDataPointsAsString(dataPoints);*/
 
                   return Container(
                     // Graph is being created from line_chart_widget.dart
