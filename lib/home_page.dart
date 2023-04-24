@@ -338,352 +338,457 @@ class HomePage extends StatelessWidget {
                                           .cast<double>()
                                           .toList();
 
-                              // Initialise minTemp, j (counts to 24 from current time)
-                              // minIndex to store the index of the lowest temperature
-                              double minTemp = double.infinity;
-                              int j = 0;
-                              int minIndex = -1;
-                              // Find the minimum temperature during the night
-                              for (int i = 0;
-                                  i < tempList.length && j < 24;
-                                  i++) {
-                                DateTime time = DateTime.parse(timeList[i]);
-                                if (time.isAfter(DateTime.now())) {
-                                  if (tempList[i] < minTemp) {
-                                    minTemp = tempList[i];
-                                    minIndex = i;
-                                  }
-                                  j++;
-                                }
-                              }
-                              DateTime dateTime =
-                                  DateTime.parse(timeList[minIndex]);
-                              String time =
-                                  DateFormat('h:mm a').format(dateTime);
-                              return Column(children: [
-                                // Textbox for AHI and most important info
-                                Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 12,
-                                      ),
-                                      child: Container(
-                                        width: 480,
-                                        height: 300,
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(223, 8, 47, 78),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color.fromARGB(
-                                                      131, 87, 87, 87)
-                                                  .withOpacity(0.5),
-                                              spreadRadius: 2,
-                                              blurRadius: 5,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ],
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 10,
-                                                  top: 10,
-                                                  bottom: 16),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Container(
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      'Status',
-                                                      style: TextStyle(
-                                                        fontSize: 24,
-                                                        fontWeight:
-                                                            FontWeight.bold,
+                                      // Initialise minTemp, j (counts to 24 from current time)
+                                      // minIndex to store the index of the lowest temperature
+                                      double minTemp = double.infinity;
+                                      int j = 0;
+                                      int minIndex = -1;
+                                      // Find the minimum temperature during the night
+                                      for (int i = 0;
+                                          i < tempList.length && j < 24;
+                                          i++) {
+                                        DateTime time =
+                                            DateTime.parse(timeList[i]);
+                                        if (time.isAfter(DateTime.now())) {
+                                          if (tempList[i] < minTemp) {
+                                            minTemp = tempList[i];
+                                            minIndex = i;
+                                          }
+                                          j++;
+                                        }
+                                      }
+                                      DateTime dateTime =
+                                          DateTime.parse(timeList[minIndex]);
+                                      String time =
+                                          DateFormat('h:mm a').format(dateTime);
+                                      return Column(children: [
+                                        // Textbox for AHI and most important info
+                                        Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 10, right: 10),
+                                            child: Align(
+                                                alignment: Alignment.topCenter,
+                                                child: Container(
+                                                  width: 480,
+                                                  height: 350,
+                                                  decoration: BoxDecoration(
+                                                    color: Color.fromARGB(
+                                                        46, 11, 114, 133),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color.fromARGB(
+                                                                131, 87, 87, 87)
+                                                            .withOpacity(0.5),
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                    ),
+                                                    ],
                                                   ),
-                                                  SizedBox(height: 16),
-                                                  Text(
-                                                    "AHI: ${ahiValue.toStringAsFixed(0)}",
-                                                    style: TextStyle(
-                                                        fontSize: 56,
-                                                        color: triangleColor),
-                                                  ),
-                                                  SizedBox(height: 42),
-                                                  Text(
-                                                    "Current electricity price:\t\t\t\t\t\t\t\t\t\t\t\t\t\t${currentPrice.toStringAsFixed(3)} cnt/kWh"
-                                                    "\nMin. temperature (next 24 h):     ${tempList[minIndex]}°C at ${time}"
-                                                    "\n\n$advice\n$advice2",
-                                                    style: TextStyle(
-                                                        fontSize: 18,
-                                                        color: Color.fromARGB(
-                                                            255,
-                                                            255,
-                                                            255,
-                                                            255)),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 0, left: 300),
-                                              child: Stack(
-                                                children: [
-                                                  Container(
-                                                    padding: EdgeInsets.all(25),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color: Color.fromARGB(
-                                                            255, 92, 92, 92),
-                                                        shape:
-                                                            BoxShape.rectangle,
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius
-                                                                    .elliptical(
-                                                                        20,
-                                                                        20)),
-                                                        border: Border.all(
-                                                          color: Color.fromARGB(
-                                                              255, 31, 31, 31),
-                                                          width: 1,
+                                                  child: Stack(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(
+                                                          left: 20,
+                                                          top: 10,
+                                                        ),
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Positioned(
+                                                              left: 0,
+                                                              child: Text(
+                                                                "$Date\n",
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        24),
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              "AHI: ${ahiValue.toStringAsFixed(0)}",
+                                                              style: TextStyle(
+                                                                  fontSize: 56,
+                                                                  color:
+                                                                      triangleColor),
+                                                            ),
+                                                            SizedBox(
+                                                                height: 42),
+                                                            Text(
+                                                              "Current electricity price:\t\t\t\t\t\t\t\t\t\t\t\t\t\t${currentPrice.toStringAsFixed(3)} cnt/kWh"
+                                                              "\nMin. temperature (next 24 h):     ${tempList[minIndex]}°C at ${time}"
+                                                              "\n\n$advice\n$advice2",
+                                                              style: TextStyle(
+                                                                  fontSize: 18,
+                                                                  color: Color
+                                                                      .fromARGB(
+                                                                          255,
+                                                                          255,
+                                                                          255,
+                                                                          255)),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
-                                                      width: 26,
-                                                      height: 128,
-                                                      child: Image.asset(
-                                                        "./assets/indicator.png",
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    right: 43,
-                                                    top:
-                                                        vPosition, // move triangle along the bar based on AHI
-                                                    child: Container(
-                                                        child: Text(
-                                                      "⫸",
-                                                      style: TextStyle(
-                                                        fontSize: 30,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color:
-                                                            triangleColor, // change triangle color based on AHI
-                                                        shadows: const [
-                                                          Shadow(
-                                                            color: Colors.black,
-                                                            offset: Offset(
-                                                                2.0, 2.0),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    )),
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      )),
-                                ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                top: 0,
+                                                                left: 300),
+                                                        child: Stack(
+                                                          children: [
+                                                            // Indicator bar
+                                                            Positioned(
+                                                              left: 11,
+                                                              top: 19,
+                                                              child:
+                                                                  Image.asset(
+                                                                "./assets/indicator.png",
+                                                                height: 138,
+                                                                width: 50,
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(25),
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  gradient:
+                                                                      const LinearGradient(
+                                                                    begin: Alignment
+                                                                        .centerLeft,
+                                                                    end: Alignment
+                                                                        .bottomRight,
 
-                                // Textbox that gives detailed info
-                                Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 15,
-                                        left: 10,
-                                        bottom: 16,
-                                      ), // Add padding to the bottom of the container
-                                      child: Container(
-                                        width: 480,
-                                        height: 250,
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromARGB(78, 156, 156, 156),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color.fromARGB(
-                                                      131, 87, 87, 87)
-                                                  .withOpacity(0.5),
-                                              spreadRadius: 2,
-                                              blurRadius: 5,
-                                              offset: Offset(0, 3),
-                                            ),
-                                          ],
-                                        ),
-                                        child: Stack(
-                                          children: [
-                                            Positioned(
-                                              top: 16,
-                                              left: 16,
+                                                                    colors: [
+                                                                      Color.fromARGB(
+                                                                          126,
+                                                                          85,
+                                                                          85,
+                                                                          85),
+                                                                      Color.fromARGB(
+                                                                          164,
+                                                                          241,
+                                                                          240,
+                                                                          240),
+                                                                    ],
+                                                                    tileMode:
+                                                                        TileMode
+                                                                            .mirror, // Use TileMode to specify how the gradient should be repeated or mirrored
+                                                                  ),
+                                                                  shape: BoxShape
+                                                                      .rectangle,
+                                                                  borderRadius:
+                                                                      BorderRadius.all(
+                                                                          Radius.elliptical(
+                                                                              16,
+                                                                              20)),
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    width: 1.5,
+                                                                  ),
+                                                                ),
+                                                                width: 22,
+                                                                height: 126,
+                                                              ),
+                                                            ),
+                                                            // Arrow indicator
+                                                            Positioned(
+                                                              right: 43,
+                                                              top:
+                                                                  vPosition, // move triangle along the bar based on AHI
+                                                              child: Container(
+                                                                  child: Text(
+                                                                "⫸",
+                                                                style:
+                                                                    TextStyle(
+                                                                  fontSize: 30,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  color:
+                                                                      triangleColor, // change triangle color based on AHI
+                                                                  shadows: const [
+                                                                    Shadow(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      offset: Offset(
+                                                                          2.0,
+                                                                          2.0),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              )),
+                                                            )
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ))),
+
+                                        // Textbox that gives detailed info
+                                        Align(
+                                          alignment: Alignment.bottomLeft,
+                                          child: Padding(
+                                              padding: EdgeInsets.only(
+                                                top: 15,
+                                                left: 10,
+                                                bottom: 16,
+                                                right: 10,
+                                              ), // Add padding to the bottom of the container
                                               child: Container(
-                                                padding: EdgeInsets.all(2),
+                                                width: 480,
+                                                height: 260,
                                                 decoration: BoxDecoration(
                                                   color: Color.fromARGB(
-                                                      255,
-                                                      161,
-                                                      161,
-                                                      161), // Background color of the container
+                                                      78, 156, 156, 156),
                                                   borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  shape: BoxShape.rectangle,
-                                                  border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255,
-                                                        56,
-                                                        56,
-                                                        56), // Border color
-                                                    width: 3, // Border width
-                                                  ),
-                                                ),
-                                                child: Icon(
-                                                  Icons.info_outline,
-                                                  color: Color.fromARGB(
-                                                      255, 56, 56, 56),
-                                                  size: 24,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 56,
-                                                  top: 16,
-                                                  bottom: 16,
-                                                  right: 16),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Detailed Info',
-                                                    style: TextStyle(
-                                                      fontSize: 18,
-                                                      fontWeight:
-                                                          FontWeight.bold,
+                                                      BorderRadius.circular(8),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Color.fromARGB(
+                                                              131, 87, 87, 87)
+                                                          .withOpacity(0.5),
+                                                      spreadRadius: 2,
+                                                      blurRadius: 5,
+                                                      offset: Offset(0, 3),
                                                     ),
-                                                  ),
-                                                  SizedBox(height: 8),
-                                                  RichText(
-                                                    text: TextSpan(
-                                                      style:
-                                                          DefaultTextStyle.of(
-                                                                  context)
-                                                              .style,
-                                                      children: <TextSpan>[
-                                                        TextSpan(
-                                                          text:
-                                                              "\nOutside temperature: ${outsideTemp / 10}°C\nWater tank temperature: ${tankTemp / 10}°C"
-                                                              "\nWater tank is $waterTankStatus ",
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w100,
-                                                              fontSize: 16),
+                                                  ],
+                                                ),
+                                                child: Stack(
+                                                  children: [
+                                                    Positioned(
+                                                      top: 16,
+                                                      left: 16,
+                                                      child: Container(
+                                                        padding:
+                                                            EdgeInsets.all(2),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              161,
+                                                              161,
+                                                              161), // Background color of the container
+                                                          borderRadius:
+                                                              BorderRadius.all(
+                                                                  Radius
+                                                                      .circular(
+                                                                          10)),
+                                                          shape: BoxShape
+                                                              .rectangle,
+                                                          border: Border.all(
+                                                            color: Color.fromARGB(
+                                                                255,
+                                                                56,
+                                                                56,
+                                                                56), // Border color
+                                                            width:
+                                                                3, // Border width
+                                                          ),
                                                         ),
-                                                        TextSpan(
-                                                          text:
-                                                              "${heatingRate.toStringAsFixed(2)}°C",
-                                                          style: TextStyle(
-                                                              color:
-                                                                  waterTankColour,
+                                                        child: Icon(
+                                                          Icons.info_outline,
+                                                          color: Color.fromARGB(
+                                                              255, 56, 56, 56),
+                                                          size: 24,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          left: 56,
+                                                          top: 16,
+                                                          bottom: 16,
+                                                          right: 16),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            'Detailed Info',
+                                                            style: TextStyle(
+                                                              fontSize: 18,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              fontSize: 16),
-                                                        ),
-                                                        TextSpan(
-                                                          text:
-                                                              " / 10 min\n\n$compressorInfo "
-                                                              "\n\nElectricity consumption (past 24h): \n${kWhDiff.toStringAsFixed(2)} kWh"
-                                                              " (~${(kWhDiff * electricityCost).toStringAsFixed(2)} €)",
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w100,
-                                                              fontSize: 16),
-                                                        ),
-                                                      ],
+                                                            ),
+                                                          ),
+                                                          SizedBox(height: 8),
+                                                          RichText(
+                                                            text: TextSpan(
+                                                              style: DefaultTextStyle
+                                                                      .of(context)
+                                                                  .style,
+                                                              children: <
+                                                                  TextSpan>[
+                                                                TextSpan(
+                                                                  text:
+                                                                      "\nOutside temperature: ${outsideTemp / 10}°C\nWater tank temperature: ${tankTemp / 10}°C"
+                                                                      "\nWater tank is $waterTankStatus ",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w100,
+                                                                      fontSize:
+                                                                          16),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      "${heatingRate.toStringAsFixed(2)}°C",
+                                                                  style: TextStyle(
+                                                                      color:
+                                                                          waterTankColour,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                      fontSize:
+                                                                          16),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      " / 10 min\n\n$compressorInfo "
+                                                                      "\n\nElectricity consumption (past 24h): \n${kWhDiff.toStringAsFixed(2)} kWh"
+                                                                      " (~${(kWhDiff * electricityCost).toStringAsFixed(2)} €)",
+                                                                  style: TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w100,
+                                                                      fontSize:
+                                                                          16),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
+                                                  ],
+                                                ),
+                                              )),
+                                        )
+                                      ]); // Stack
+                                    } else {
+                                      return Text('No documents found');
+                                    }
+                                  } else if (snapshot.hasError) {
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    return CircularProgressIndicator();
+                                  }
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Container 2
+                    Visibility(
+                        visible: selectedContainerIndex == 1,
+                        child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: Column(children: [
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      left: 10, right: 10, top: 10),
+                                  child: Container(
+                                    child:
+                                        // Call Weather API and create weather graph
+                                        FutureBuilder<dynamic>(
+                                      future: fetchApiData(
+                                          'https://api.open-meteo.com/v1/forecast?latitude=66.48&longitude=25.72&hourly=temperature_2m&forecast_days=3&timezone=auto'),
+                                      builder: (context, snapshot) {
+                                        List<String> timeList = [];
+                                        List<double> tempList = [];
+                                        if (snapshot.hasData) {
+                                          // The lists are dynamic, so they are casted to their
+                                          // respective formats
+                                          timeList = snapshot.data["hourly"]
+                                                  ["time"]
+                                              .cast<String>()
+                                              .toList();
+                                          tempList = snapshot.data["hourly"]
+                                                  ["temperature_2m"]
+                                              .cast<double>()
+                                              .toList();
+                                          timeList = parseDateTimes(timeList);
+                                          List<DataPoint> dataPoints =
+                                              mergeLists(timeList, tempList);
+                                          var weatherGraph = Container(
+                                              padding: EdgeInsets.only(
+                                                  top: 20, right: 30),
+                                              width: 480,
+                                              height: 220,
+                                              decoration: BoxDecoration(
+                                                border: Border.all(
+                                                  color: Color.fromARGB(
+                                                      255, 40, 73, 70),
+                                                  width: 1.5,
+                                                ),
+                                                color: Color.fromARGB(
+                                                    46, 11, 114, 133),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Color.fromARGB(
+                                                            131, 0, 0, 0)
+                                                        .withOpacity(0.5),
+                                                    spreadRadius: 2,
+                                                    blurRadius: 5,
+                                                    offset: Offset(0, 3),
                                                   ),
                                                 ],
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      )),
-                                )
-                              ]); // Stack
-                            } else {
-                              return Text('No documents found');
-                            }
-                          } else if (snapshot.hasError) {
-                            return Text('Error: ${snapshot.error}');
-                          } else {
-                            return CircularProgressIndicator();
-                          }
-                        },
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Container 2
-            Visibility(
-                visible: selectedContainerIndex == 1,
-                child: Column(children: [
-                  Container(
-                    child:
-                        // Call Weather API and create weather graph
-                        FutureBuilder<dynamic>(
-                      future: fetchApiData(
-                          'https://api.open-meteo.com/v1/forecast?latitude=66.48&longitude=25.72&hourly=temperature_2m&forecast_days=3&timezone=auto'),
-                      builder: (context, snapshot) {
-                        List<String> timeList = [];
-                        List<double> tempList = [];
-                        if (snapshot.hasData) {
-                          // The lists are dynamic, so they are casted to their
-                          // respective formats
-                          timeList = snapshot.data["hourly"]["time"]
-                              .cast<String>()
-                              .toList();
-                          tempList = snapshot.data["hourly"]["temperature_2m"]
-                              .cast<double>()
-                              .toList();
-                          timeList = parseDateTimes(timeList);
-                          List<DataPoint> dataPoints =
-                              mergeLists(timeList, tempList);
-                          var weatherGraph = Container(
-                              padding: EdgeInsets.only(top: 10, bottom: 20),
-                              child: Container(
-                                  padding: EdgeInsets.only(top: 20),
+                                              child: Column(children: [
+                                                Text(
+                                                  '3-day Temperature Forecast',
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color.fromARGB(
+                                                        255, 255, 255, 255),
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                                WeatherWidget(
+                                                    dataPoints, timeList)
+                                              ]));
+                                          return weatherGraph;
+                                        }
+                                        return CircularProgressIndicator();
+                                      },
+                                    ),
+                                  )),
+                              const SizedBox(height: 30),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10, right: 10),
+                                child: Container(
+                                  padding: EdgeInsets.only(top: 10),
                                   width: 480,
-                                  height: 230,
+                                  height: 300,
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      width: 3,
+                                      color: Color.fromARGB(255, 40, 73, 70),
+                                      width: 1.5,
                                     ),
-                                    color: Color.fromARGB(255, 109, 109, 109),
+                                    color: Color.fromARGB(46, 11, 114, 133),
                                     borderRadius: BorderRadius.circular(8),
                                     boxShadow: [
                                       BoxShadow(
@@ -695,66 +800,31 @@ class HomePage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  child: Column(children: [
-                                    Text(
-                                      '3-day Temperature Forecast',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 8,
-                                    ),
-                                    WeatherWidget(dataPoints, timeList)
-                                  ])));
-                          return weatherGraph;
-                        }
-                        return CircularProgressIndicator();
-                      },
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 10, top: 10),
-                    width: 480,
-                    height: 300,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        width: 3,
-                      ),
-                      color: Color.fromARGB(255, 109, 109, 109),
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromARGB(131, 0, 0, 0).withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child:
-                        // Get electricity data and create electricity graph
-                        FutureBuilder<dynamic>(
-                      future: fetchApiData(
-                          'https://api.porssisahko.net/v1/latest-prices.json'),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          List<dynamic> pricesList = snapshot.data["prices"];
-                          List<String> startDateList = pricesList
-                              .map((item) => item['startDate'].toString())
-                              .toList();
-                          List<double> priceList = pricesList
-                              .map((item) => item['price'] as double)
-                              .toList();
-                          // reverse the lists with the data so that the graph goes from left to right
-                          startDateList = startDateList.reversed.toList();
-                          priceList = priceList.reversed.toList();
-                          startDateList = parseDateTimes(startDateList);
-                          List<DataPoint> priceData =
-                              mergeLists(startDateList, priceList);
+                                  child:
+                                      // Get electricity data and create electricity graph
+                                      FutureBuilder<dynamic>(
+                                    future: fetchApiData(
+                                        'https://api.porssisahko.net/v1/latest-prices.json'),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        List<dynamic> pricesList =
+                                            snapshot.data["prices"];
+                                        List<String> startDateList = pricesList
+                                            .map((item) =>
+                                                item['startDate'].toString())
+                                            .toList();
+                                        List<double> priceList = pricesList
+                                            .map((item) =>
+                                                item['price'] as double)
+                                            .toList();
+                                        // reverse the lists with the data so that the graph goes from left to right
+                                        startDateList =
+                                            startDateList.reversed.toList();
+                                        priceList = priceList.reversed.toList();
+                                        startDateList =
+                                            parseDateTimes(startDateList);
+                                        List<DataPoint> priceData = mergeLists(
+                                            startDateList, priceList);
 
                                         var priceGraph = Container(
                                             padding: EdgeInsets.only(
