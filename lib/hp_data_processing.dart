@@ -52,7 +52,7 @@ Map<String, dynamic> processData(
   } else {
     compressorInfo = "Compressor has been on for over 15 minutes.";
   }
-  double standardPrice = 5;
+  double standardPrice = 7;
   double ahiValue = 50;
   double priceFactor = 10;
   double tempFactor = 0;

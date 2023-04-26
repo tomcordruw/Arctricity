@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
     String selectedPlaceholder = ''; // Initial selected placeholder
     int numDocuments = 100; // Number of documents to fetch
     List<DocumentSnapshot> historicalData = [];
-    double electricityCost = 0.075;
+    double electricityCost = 0.070;
     return Scaffold(
       body: Stack(
         children: [

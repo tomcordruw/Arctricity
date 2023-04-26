@@ -67,15 +67,14 @@ class AboutPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: const Text(
-                            "\nData:\n\nHP_compressor_on_off:\tGives the current status of the heat pump's compressor, while it is on the system is heating"
-                            "\n\nAHI:\t(Auxiliary Heat Index) - An estimate for whether the heat pump can is able to heat enough by itself"
-                            "\n 100 is the worst case scenario and 0 the best case scenario"
-                            "\n\nHP_compressor_on_off:\tGives the current status of the heat pump's compressor, while it is on the system is heating"
-                            "\n\nalarms 0-8:\tGives the current status of the heat pump's compressor, while it is on the system is heating"
-                            "\n\ntemp_HP_high_limit:\tThe temperature of the water tank at which the compressor turns off"
-                            "\n\ntemp_HP_low_limit:\tThe temperature of the water tank at which the compressor turns on"
-                            "\n\ntemp_out:\tOutside temperature"
-                            "\n\nelectricheater:\tetc.",
+                            "\nData:\n\nHP_compressor_on_off:\n-current status of the heat pump's compressor\n-when on, the system is heating"
+                            "\n\nAHI:\t(Auxiliary Heat Index)\n-estimate for whether electrical heating suffices or additional/alternative heating should be used"
+                            "\n100 = auxiliary heat strongly recommended\n0 = auxiliary heat unnecessary"
+                            "\n\nalarms 0-8:\n-reports about certain errors and malfunctions"
+                            "\n\ntemp_HP_high_limit:\n-the temperature threshold at which the compressor turns off"
+                            "\n\ntemp_HP_low_limit:\n-the temperature threshold at which the compressor turns on"
+                            "\n\ntemp_out:\n-current temperature outside"
+                            "\n\nelectricheater:\n-etc.",
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
