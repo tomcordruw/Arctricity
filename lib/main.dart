@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
+      title: 'Arctricity',
       theme: ThemeData.dark(),
       home: HomePage(
           selectedContainerIndex: selectedContainerIndex,

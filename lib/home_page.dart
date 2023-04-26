@@ -39,15 +39,16 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
           ),
-          // Only for smartphones because of potential notches
+          // Only for smartphones because of potential notches (part 1)
           /*Positioned(
             child: Container(
               height: 42,
-              color: Color.fromARGB(121, 24, 124, 116),
+              color: Color.fromARGB(255, 3, 46, 48),
             ),
           ),*/
           Column(children: [
-            /* SizedBox(
+            // Only for smartphones because of potential notches (part 2)
+            /*SizedBox(
               height: 42,
             ),*/
             Stack(
@@ -59,7 +60,8 @@ class HomePage extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.only(
                               top: 56, bottom: 20, left: 235, right: 30),
-                          decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 3, 46, 48),
+                          /*decoration: const BoxDecoration(
                             gradient: LinearGradient(
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter,
@@ -70,9 +72,9 @@ class HomePage extends StatelessWidget {
                               tileMode: TileMode
                                   .mirror, // Use TileMode to specify how the gradient should be repeated or mirrored
                             ),
-                          ),
+                          ),*/
                         ))),
-                BackdropFilter(
+                /*   BackdropFilter(
                     filter: ui.ImageFilter.blur(
                         sigmaX: 0.7, sigmaY: 0.7), // Specify blur amount
                     child: Container(
@@ -90,7 +92,7 @@ class HomePage extends StatelessWidget {
                               .mirror, // Use TileMode to specify how the gradient should be repeated or mirrored
                         ),
                       ),
-                    )),
+                    )),*/
                 // Buttons are here
                 Row(children: [
                   Container(
@@ -862,6 +864,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromARGB(255, 3, 46, 48),
         currentIndex: selectedContainerIndex,
         onTap: onContainerSelected,
         iconSize: 42,

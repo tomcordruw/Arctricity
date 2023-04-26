@@ -54,9 +54,8 @@ class DataPage extends StatelessWidget {
                                         ?.toString() ??
                                     data[key];
                             var unit = getUnit(key, value);
-                            if (unit == "" &&
-                                (value == "0.0" || value == "1.0")) {
-                              value = value == "0.0" ? "off" : "on";
+                            if (unit == "" && (value == "0" || value == "1")) {
+                              value = value == "0" ? "off" : "on";
                             } else if (unit == "°C") {
                               value = double.parse(value) / 10;
                             }
